@@ -1,7 +1,7 @@
 //rfc -> react function based component
 import React from "react";
 import PropTypes from "prop-types";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default function Navbar(props) {
   return (
@@ -26,15 +26,15 @@ export default function Navbar(props) {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="#">
+              <Link className="nav-link active" aria-current="page" to="/">
                 Home
-              </a>
+              </Link>
             </li>
 
             <li className="nav-item">
-              <a className="nav-link" aria-disabled="true" href="#">
+              <Link className="nav-link" aria-disabled="true" to="/about">
                 About
-              </a>
+              </Link>
             </li>
           </ul>
           {/* coloured mode 
@@ -93,7 +93,7 @@ export default function Navbar(props) {
               className={`form-check-label text-${
                 props.mode === "light" ? "dark" : "light "
               }`}
-              htmlfor="flexSwitchCheckDefault"
+              htmlFor="flexSwitchCheckDefault"
             >
               Enable Dark Mode
             </label>
@@ -107,11 +107,11 @@ export default function Navbar(props) {
 // if not same then error in the console.
 Navbar.propTypes = {
   title: PropTypes.string.isRequired,
-  about: PropTypes.string.isRequired,
+  about: PropTypes.string,
 };
 
 // if proprs are not mentioned
-Navbar.defaultProps = {
-  title: "Title not mentioned",
-  about: "about not mentioned",
-};
+// Navbar.defaultProps = {
+//   title: "Title not mentioned",
+//   about: "about not mentioned",
+// };
