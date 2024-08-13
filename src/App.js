@@ -2,9 +2,9 @@ import "./App.css";
 import Navbar from "./components/Navbar";
 import TextForm from "./components/TextForm";
 import Alert from "./components/Alert";
-import About from "./components/About";
+// import About from "./components/About";
 import React, { useState } from "react";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+// import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 function App() {
   const [mode, setMode] = useState("light");
@@ -43,37 +43,45 @@ function App() {
     }
   };
 
-  const router = createBrowserRouter([
-    {
-      path: "/",
-      element: (
-        <>
-          <Navbar title="TextUtils" toggleMode={toggle} mode={mode} />
-          <Alert alert={state} />
+  // const router = createBrowserRouter([
+  //   {
+  //     path: "/",
+  //     element: (
+  //       <>
+  //         <Navbar title="TextUtils" toggleMode={toggle} mode={mode} />
+  //         <Alert alert={state} />
 
-          <TextForm
-            button="Convert to Uppercase"
-            mode={mode}
-            showState={showState}
-          />
-        </>
-      ),
-    },
-    {
-      path: "/about",
-      element: (
-        <>
-          <Navbar title="TextUtils" toggleMode={toggle} mode={mode} />
-          <Alert alert={state} />
-          <About />
-        </>
-      ),
-    },
-  ]);
+  //         <TextForm
+  //           button="Convert to Uppercase"
+  //           mode={mode}
+  //           showState={showState}
+  //         />
+  //       </>
+  //     ),
+  //   },
+  //   {
+  //     path: "/about",
+  //     element: (
+  //       <>
+  //         <Navbar title="TextUtils" toggleMode={toggle} mode={mode} />
+  //         <Alert alert={state} />
+  //         <About />
+  //       </>
+  //     ),
+  //   },
+  // ]);
 
   return (
     <>
-      <RouterProvider router={router} />
+      <Navbar title="TextUtils" toggleMode={toggle} mode={mode} />
+      <Alert alert={state} />
+
+      <TextForm
+        button="Convert to Uppercase"
+        mode={mode}
+        showState={showState}
+      />
+      {/* <RouterProvider router={router} /> */}
     </>
   );
 }
